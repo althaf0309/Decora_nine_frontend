@@ -22,7 +22,7 @@ export const SEO = ({
     document.title = `${title} | Decora Nine Interiors`;
 
     // Update meta tags
-    const metaTags = {
+    const metaTags: Record<string, { name?: string; property?: string; content: string }> = {
       description: { name: 'description', content: description },
       keywords: { name: 'keywords', content: keywords },
       'og:title': { property: 'og:title', content: title },
