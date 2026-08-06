@@ -1,0 +1,19 @@
+@import './Pages.css';
+
+.news-empty {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 17px;
+  padding: 60px 20px;
+}
+
+/* News detail body — readable paragraphs */
+.news-body p {
+  color: var(--text);
+  line-height: 1.9;
+  font-size: 16.5px;
+  margin-bottom: 18px;
+}
+.news-body p:last-child {
+  margin-bottom: 0;
+}

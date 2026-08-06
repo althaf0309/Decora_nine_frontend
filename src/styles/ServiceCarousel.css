@@ -1,0 +1,77 @@
+.svc-carousel {
+  position: relative;
+  margin-top: 50px;
+}
+
+.svc-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 26px 4px 30px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.svc-track::-webkit-scrollbar {
+  display: none;
+}
+
+.svc-slide {
+  flex: 0 0 calc((100% - 48px) / 3);
+  min-width: 300px;
+  scroll-snap-align: start;
+  display: flex;
+}
+.svc-slide .service-card {
+  width: 100%;
+}
+
+.svc-arrow {
+  position: absolute;
+  top: 46%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: var(--primary);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0, 61, 153, 0.2);
+  z-index: 5;
+  transition: all 0.25s ease;
+}
+.svc-arrow:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+.svc-arrow.left {
+  left: -16px;
+}
+.svc-arrow.right {
+  right: -16px;
+}
+
+@media (max-width: 900px) {
+  .svc-slide {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .svc-slide {
+    flex-basis: 86%;
+    min-width: 0;
+  }
+  .svc-arrow {
+    display: none;
+  }
+  .svc-track {
+    padding: 20px 2px 24px;
+  }
+}
