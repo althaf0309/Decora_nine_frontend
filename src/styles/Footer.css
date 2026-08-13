@@ -135,12 +135,21 @@
   margin-bottom: 14px;
   opacity: 0.9;
   line-height: 1.7;
+  align-items: flex-start;
+}
+.footer-contact .fc-ico {
+  flex-shrink: 0;
 }
 .footer-contact .fc-line a {
   opacity: 1;
 }
 .footer-contact .fc-line a:hover {
   color: var(--accent);
+}
+.fc-phone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .social-links {

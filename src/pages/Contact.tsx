@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiPhone, FiMessageCircle, FiMail, FiClock, FiTarget, FiEye } from 'react-icons/fi';
+import { FiPhone, FiMessageCircle, FiMail, FiClock, FiTarget, FiEye, FiUsers } from 'react-icons/fi';
 import { SiteSettings, Service } from '../types';
 import { ServiceIcon } from '../lib/icons';
 import { ContactForm } from '../components/ContactForm';
@@ -21,7 +21,7 @@ export const Contact = () => {
     }).catch(console.error);
   }, []);
 
-  const phones = ['6366876887', '7306876887', '9562955740', '9847768362'];
+  const phones = ['6366876887', '7306876887', '9562955740', '9606476887'];
   const whatsapp = settings?.whatsapp_number || '6366876887';
 
   return (
@@ -147,14 +147,14 @@ export const About = () => {
         <section className="about-split">
           <div className="about-media reveal reveal-left">
             <img src="/about.jpg" alt="Decora Nine interior project" />
-            <div className="about-badge"><strong>13+</strong><span>Years of<br />Experience</span></div>
+            <div className="about-badge"><strong><FiUsers /></strong><span>Multi-talented<br />Supervisors &amp; Teams</span></div>
           </div>
           <div className="about-text reveal reveal-right">
             <span className="about-eyebrow">Who We Are</span>
             <h2 className="fancy-h">
               <span className="fh-italic">A reputed interior design &amp;</span>&nbsp;<span className="fh-bold">execution firm</span>
             </h2>
-            <p>Decora Nine Interiors is a reputed interior design and execution firm based in Bangalore, with 13 years of experience shaping homes, offices and commercial spaces.</p>
+            <p>Decora Nine Interiors is a reputed interior design and execution firm based in Bangalore, built on multi-talented supervisors and skilled teams shaping homes, offices and commercial spaces.</p>
             <p>Our strength lies on the ground — a team of effective supervisors and skilled workers who bring every project in on quality, on schedule and true to design intent, from the first drawing to the final finish.</p>
             <div className="about-tags">
               {ABOUT_TAGS.map(t => <span key={t} className="tag-chip">{t}</span>)}
@@ -189,8 +189,8 @@ export const About = () => {
           </div>
           <div className="stats-grid">
             <div className="stat-card reveal">
-              <div className="stat-number">13+</div>
-              <div className="stat-label">Years of Experience</div>
+              <div className="stat-number stat-number-sm">Skilled</div>
+              <div className="stat-label">Supervisors &amp; Teams</div>
             </div>
             <div className="stat-card reveal">
               <div className="stat-number">6</div>

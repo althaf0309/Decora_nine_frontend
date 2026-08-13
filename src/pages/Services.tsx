@@ -33,7 +33,7 @@ export const Services = () => {
           <p>
             From concept and design to on-site execution, Decora Nine delivers complete
             interior solutions for homes, offices, restaurants and commercial spaces. With
-            13 years of experience and a skilled in-house team, we handle every stage — layout,
+            multi-talented supervisors and a skilled in-house team, we handle every stage — layout,
             materials, carpentry, glazing and signage — on quality and on schedule. Explore our
             core services below.
           </p>

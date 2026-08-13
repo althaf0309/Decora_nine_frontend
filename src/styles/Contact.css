@@ -233,6 +233,9 @@
   margin-bottom: 8px;
   line-height: 1.1;
 }
+.stat-number-sm {
+  font-size: 26px;
+}
 .stat-label {
   font-size: 14px;
   opacity: 0.92;

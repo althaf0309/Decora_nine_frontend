@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FiAward, FiClock, FiTool, FiEdit3, FiTarget, FiEye, FiHeart,
+  FiUsers, FiClock, FiTool, FiEdit3, FiTarget, FiEye, FiHeart,
 } from 'react-icons/fi';
 import { Service, Project, SiteSettings, Testimonial } from '../types';
 import { ServiceCarousel } from '../components/ServiceCarousel';
@@ -20,7 +20,7 @@ const HERO_IMAGES = [
 ];
 
 const WHY = [
-  { icon: <FiAward />, title: '13 Years of Experience', text: 'Over a decade shaping homes, offices and commercial spaces across South India.' },
+  { icon: <FiUsers />, title: 'Multi-talented Teams', text: 'Skilled supervisors and craftsmen who bring real expertise to every project across South India.' },
   { icon: <FiClock />, title: 'On-Schedule Delivery', text: 'Effective supervisors and a disciplined process bring every project in on time.' },
   { icon: <FiTool />, title: 'Skilled In-House Team', text: 'Our own supervisors and craftsmen execute the work — no loose ends, no surprises.' },
   { icon: <FiEdit3 />, title: 'True to Design Intent', text: 'From the first drawing to the final finish, the result matches the vision.' },
@@ -28,24 +28,24 @@ const WHY = [
 
 const MISSION_VISION = [
   {
-    icon: <FiTarget />, title: 'Our Mission', img: '/gallery/living.jpg',
+    icon: <FiTarget />, title: 'Our Mission', img: '/gallery/glass.jpg',
     text: 'To build beautiful, functional interiors — reliably, every time. We turn everyday homes, offices and commercial spaces into places that work better and feel better, delivered on quality and on schedule.',
     dir: 'reveal-left',
   },
   {
-    icon: <FiEye />, title: 'Our Vision', img: '/gallery/office.jpg',
+    icon: <FiEye />, title: 'Our Vision', img: '/gallery/kitchen.jpg',
     text: "To be South India's most trusted interior design partner — the name clients and businesses recommend for design that lasts and execution they can depend on.",
     dir: '',
   },
   {
-    icon: <FiHeart />, title: 'Our Promise', img: '/gallery/restaurant.jpg',
+    icon: <FiHeart />, title: 'Our Promise', img: '/gallery/cafe.webp',
     text: 'Honest advice, transparent pricing and a skilled in-house team that stays true to the design intent — from the very first drawing to the final finish.',
     dir: 'reveal-right',
   },
 ];
 
 const STATS = [
-  { num: '13+', label: 'Years of Experience' },
+  { num: 'Skilled', label: 'Supervisors & Teams' },
   { num: '6', label: 'Core Services' },
   { num: '100%', label: 'In-house Execution' },
   { num: 'South India', label: 'Projects Delivered' },
@@ -160,18 +160,18 @@ export const Home = () => {
           <div className="intro-media reveal reveal-left">
             <img src="/about.jpg" alt="Decora Nine interior work" />
             <div className="intro-badge">
-              <strong>13+</strong>
-              <span>Years of<br />Experience</span>
+              <strong><FiUsers /></strong>
+              <span>Multi-talented<br />Supervisors &amp; Teams</span>
             </div>
           </div>
           <div className="intro-text reveal reveal-right">
             <span className="eyebrow">About Us</span>
             <h2>A reputed interior design &amp; execution firm in Bangalore</h2>
             <p>
-              Decora Nine Interiors has 13 years of experience shaping homes, offices and
-              commercial spaces. Our strength lies on the ground — a team of effective
-              supervisors and skilled workers who bring every project in on quality, on
-              schedule and true to design intent, from the first drawing to the final finish.
+              Decora Nine Interiors brings together multi-talented supervisors and skilled
+              teams to shape homes, offices and commercial spaces. Our strength lies on the
+              ground — people who bring every project in on quality, on schedule and true to
+              design intent, from the first drawing to the final finish.
             </p>
             <div className="tag-row">
               {TAGS.map(t => <span key={t} className="tag-chip">{t}</span>)}

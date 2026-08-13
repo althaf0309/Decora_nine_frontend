@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { FiPhone, FiArrowUp } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { SiteSettings } from '../types';
 import apiClient from '../api/client';
 import '../styles/FloatingActions.css';
@@ -28,7 +30,7 @@ export const FloatingActions = () => {
           aria-label="Back to top"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          ↑
+          <FiArrowUp />
         </button>
       )}
       <a
@@ -36,7 +38,7 @@ export const FloatingActions = () => {
         href={`tel:${phone}`}
         aria-label="Call us"
       >
-        <span className="fab-icon">📞</span>
+        <span className="fab-icon"><FiPhone /></span>
         <span className="fab-label">Call</span>
       </a>
       <a
@@ -46,7 +48,7 @@ export const FloatingActions = () => {
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
       >
-        <span className="fab-icon">💬</span>
+        <span className="fab-icon"><FaWhatsapp /></span>
         <span className="fab-label">WhatsApp</span>
       </a>
     </div>

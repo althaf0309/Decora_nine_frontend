@@ -32,9 +32,6 @@ export const Header = () => {
             <a href={`tel:${phone}`}>📞 +91 {phone}</a>
             <a href={`mailto:${email}`}>✉️ {email}</a>
           </div>
-          <div className="topbar-right">
-            <span>🕒 {settings?.business_hours || 'Mon–Sat: 10:00 AM – 6:00 PM'}</span>
-          </div>
         </div>
       </div>
 

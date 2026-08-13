@@ -20,7 +20,7 @@ export const Footer = () => {
     apiClient.getSiteSettings().then(setSettings).catch(console.error);
   }, []);
 
-  const phones = ['6366876887', '7306876887', '9562955740', '9847768362'];
+  const phones = ['6366876887', '7306876887', '9562955740', '9606476887'];
   const email = settings?.email || 'decoranine@gmail.com';
 
   return (
@@ -81,16 +81,17 @@ export const Footer = () => {
 
           <div className="footer-section footer-contact">
             <h3>Get In Touch</h3>
-            <p className="fc-line">📍 {settings?.address}</p>
-            <p className="fc-line">
-              📞 {phones.map((p, i) => (
-                <span key={p}>
-                  <a href={`tel:${p}`}>+91 {p}</a>{i < phones.length - 1 ? ', ' : ''}
-                </span>
-              ))}
-            </p>
-            <p className="fc-line">✉️ <a href={`mailto:${email}`}>{email}</a></p>
-            <p className="fc-line">🕒 {settings?.business_hours}</p>
+            <p className="fc-line"><span className="fc-ico">📍</span> {settings?.address}</p>
+            <div className="fc-line fc-phones">
+              <span className="fc-ico">📞</span>
+              <span className="fc-phone-list">
+                {phones.map(p => (
+                  <a key={p} href={`tel:${p}`}>+91 {p}</a>
+                ))}
+              </span>
+            </div>
+            <p className="fc-line"><span className="fc-ico">✉️</span> <a href={`mailto:${email}`}>{email}</a></p>
+            <p className="fc-line"><span className="fc-ico">🕒</span> {settings?.business_hours}</p>
           </div>
         </div>
 
