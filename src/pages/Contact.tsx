@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPhone, FiMessageCircle, FiMail, FiClock, FiTarget, FiEye, FiUsers } from 'react-icons/fi';
 import { SiteSettings, Service } from '../types';
-import { ServiceIcon } from '../lib/icons';
 import { ContactForm } from '../components/ContactForm';
+import { ServiceCarousel } from '../components/ServiceCarousel';
 import apiClient from '../api/client';
 import '../styles/Contact.css';
 
@@ -115,14 +115,6 @@ export const Contact = () => {
   );
 };
 
-const ABOUT_SERVICES: [string, string][] = [
-  ['residential-interior-design', 'Residential Interior Design'],
-  ['commercial-interior-design', 'Commercial Interior Design'],
-  ['office-interiors', 'Office Interiors'],
-  ['furniture-carpentry', 'Furniture & Carpentry'],
-  ['signage-board-work', 'Signage Board Work'],
-  ['acp-glass-structure-glazing', 'ACP & Glass Structure Glazing'],
-];
 const ABOUT_TAGS = ['Modern', 'Elegant', 'Comfort', 'Minimalist', 'Stylish'];
 const ABOUT_GALLERY = [
   '/gallery/living.jpg', '/gallery/office.jpg', '/gallery/restaurant.jpg',
@@ -131,9 +123,11 @@ const ABOUT_GALLERY = [
 
 export const About = () => {
   const [settings, setSettings] = useState<SiteSettings | null>(null);
+  const [services, setServices] = useState<Service[]>([]);
 
   useEffect(() => {
     apiClient.getSiteSettings().then(setSettings).catch(console.error);
+    apiClient.getServices({ page_size: 8 }).then(d => setServices(d.results)).catch(console.error);
   }, []);
 
   return (
@@ -170,13 +164,7 @@ export const About = () => {
               <span className="fh-dash" />
             </h2>
           </div>
-          <div className="services-list">
-            {ABOUT_SERVICES.map(([slug, name], i) => (
-              <div key={name} className={`service-item reveal d${(i % 3) + 1}`}>
-                <span className="si-ico"><ServiceIcon slug={slug} size={22} /></span> {name}
-              </div>
-            ))}
-          </div>
+          <ServiceCarousel services={services} />
         </section>
 
         <section className="about-stats">
