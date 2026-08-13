@@ -159,16 +159,22 @@
 }
 
 .social-links a {
-  display: inline-block;
-  padding: 8px 16px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  font-size: 14px;
+  border-radius: 50%;
+  font-size: 17px;
+  color: #fff;
+  transition: all 0.25s ease;
 }
 
 .social-links a:hover {
   background: var(--accent);
   color: #1a1a1a;
+  transform: translateY(-2px);
 }
 
 .footer-bottom {

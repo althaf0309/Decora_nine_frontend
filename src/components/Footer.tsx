@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaInstagram, FaFacebookF, FaWhatsapp, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { SiteSettings } from '../types';
 import apiClient from '../api/client';
 import '../styles/Footer.css';
@@ -51,10 +52,11 @@ export const Footer = () => {
             )}
             <p>{settings?.footer_description}</p>
             <div className="social-links">
-              {settings?.facebook_url && <a href={settings.facebook_url} target="_blank" rel="noopener noreferrer">Facebook</a>}
-              {settings?.instagram_url && <a href={settings.instagram_url} target="_blank" rel="noopener noreferrer">Instagram</a>}
-              {settings?.linkedin_url && <a href={settings.linkedin_url} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
-              {settings?.youtube_url && <a href={settings.youtube_url} target="_blank" rel="noopener noreferrer">YouTube</a>}
+              {settings?.instagram_url && <a href={settings.instagram_url} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>}
+              {settings?.facebook_url && <a href={settings.facebook_url} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>}
+              {settings?.whatsapp_number && <a href={`https://wa.me/91${settings.whatsapp_number}`} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>}
+              {settings?.linkedin_url && <a href={settings.linkedin_url} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>}
+              {settings?.youtube_url && <a href={settings.youtube_url} target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>}
             </div>
           </div>
 

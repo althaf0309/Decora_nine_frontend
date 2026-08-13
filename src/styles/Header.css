@@ -33,6 +33,28 @@
 .topbar a:hover {
   color: #fff;
 }
+.topbar-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar-social a {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  transition: all 0.25s ease;
+}
+.topbar-social a:hover {
+  background: var(--accent);
+  color: #1a1a1a;
+  transform: translateY(-1px);
+}
 
 /* Main navbar */
 .navbar {
