@@ -3,8 +3,17 @@ import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { FiMapPin, FiUser, FiMaximize, FiCalendar, FiArrowLeft } from 'react-icons/fi';
 import { Project, ProjectCategory } from '../types';
 import { ProjectCard } from '../components/Cards';
+import { SEO, businessJsonLd } from '../components/SEO';
+import { CTABand } from '../components/PageExtras';
 import apiClient from '../api/client';
 import '../styles/Projects.css';
+
+const PROJ_STATS = [
+  ['Residential', 'Homes & apartments'],
+  ['Commercial', 'Cafés, restaurants & retail'],
+  ['Office', 'Workspaces & fit-outs'],
+  ['South India', 'Where we deliver'],
+];
 
 export const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -31,9 +40,15 @@ export const Projects = () => {
 
   return (
     <div className="projects-page">
+      <SEO
+        title="Interior Design Projects in Bangalore"
+        description="Explore completed interior design projects by Decora Nine Interiors — homes, apartments, offices, cafés, restaurants and commercial spaces across Bangalore and South India."
+        keywords="interior design projects Bangalore, interior design portfolio, café interior Bangalore, office interior projects, home interior projects, commercial interiors South India"
+        jsonLd={businessJsonLd}
+      />
       <section className="page-header">
         <h1>Our Projects</h1>
-        <p>Showcase of completed interior design projects</p>
+        <p>Interior design projects delivered across Bangalore &amp; South India</p>
       </section>
 
       <div className="container">
@@ -45,6 +60,15 @@ export const Projects = () => {
             execution, quality finishes and results true to the original design intent. Filter by
             category to explore.
           </p>
+        </div>
+
+        <div className="proj-stats reveal">
+          {PROJ_STATS.map(([n, l]) => (
+            <div key={n} className="proj-stat">
+              <strong>{n}</strong>
+              <span>{l}</span>
+            </div>
+          ))}
         </div>
 
         <div className="filter-buttons">
@@ -71,6 +95,12 @@ export const Projects = () => {
           ))}
         </div>
       </div>
+
+      <CTABand
+        heading="Have a space in mind?"
+        text="Let's turn it into your next stand-out project. Book a free consultation with our Bangalore team."
+        label="Start Your Project"
+      />
     </div>
   );
 };
@@ -101,6 +131,22 @@ export const ProjectDetail = () => {
 
   return (
     <div className="project-detail-page">
+      <SEO
+        title={`${project.title} — ${project.category?.name || 'Interior'} Project`}
+        description={`${project.short_description} Interior design project in ${project.location} by Decora Nine Interiors.`}
+        keywords={`${project.title}, ${project.category?.name || 'interior'} interior design, ${project.location}, interior designers Bangalore`}
+        image={project.cover_image}
+        type="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: project.title,
+          description: project.short_description,
+          image: project.cover_image,
+          locationCreated: project.location,
+          creator: businessJsonLd,
+        }}
+      />
       {/* Hero banner */}
       <section className="pd-hero" style={{ backgroundImage: `url(${project.cover_image})` }}>
         <div className="pd-hero-overlay" />

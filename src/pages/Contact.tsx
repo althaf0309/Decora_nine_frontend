@@ -4,6 +4,7 @@ import { FiPhone, FiMessageCircle, FiMail, FiClock, FiTarget, FiEye, FiUsers } f
 import { SiteSettings, Service } from '../types';
 import { ContactForm } from '../components/ContactForm';
 import { ServiceCarousel } from '../components/ServiceCarousel';
+import { SEO, businessJsonLd } from '../components/SEO';
 import apiClient from '../api/client';
 import '../styles/Contact.css';
 
@@ -26,6 +27,12 @@ export const Contact = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title="Contact — Interior Designers in Bangalore"
+        description="Contact Decora Nine Interiors in Madiwala, Bangalore for home, office and commercial interior design. Call +91 6366876887, WhatsApp or request a free consultation."
+        keywords="contact interior designers Bangalore, interior design consultation Bangalore, Decora Nine Interiors contact, interior designers Madiwala"
+        jsonLd={businessJsonLd}
+      />
       <section className="page-header">
         <h1>Get In Touch</h1>
         <p>Have a project in mind? Let's talk</p>
@@ -132,6 +139,12 @@ export const About = () => {
 
   return (
     <div className="about-page">
+      <SEO
+        title="About — Interior Design & Execution Firm in Bangalore"
+        description="Decora Nine Interiors is a reputed interior design and execution firm in Bangalore, built on multi-talented supervisors and skilled teams delivering homes, offices and commercial spaces on quality and on schedule."
+        keywords="about Decora Nine Interiors, interior design firm Bangalore, interior execution company, best interior designers Bangalore, Madiwala interior designers"
+        jsonLd={businessJsonLd}
+      />
       <section className="page-header">
         <h1>About Decora Nine Interiors</h1>
         <p>Your interior design partner in Bangalore</p>

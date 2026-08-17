@@ -1,1 +1,37 @@
 @import './Pages.css';
+
+/* Projects list — stat strip */
+.proj-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 44px;
+  box-shadow: 0 10px 30px rgba(0, 61, 153, 0.06);
+}
+.proj-stat {
+  padding: 26px 22px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.proj-stat:last-child { border-right: none; }
+.proj-stat strong {
+  display: block;
+  color: var(--primary);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.proj-stat span {
+  color: var(--text-light);
+  font-size: 13px;
+}
+@media (max-width: 700px) {
+  .proj-stats { grid-template-columns: 1fr 1fr; }
+  .proj-stat:nth-child(2) { border-right: none; }
+  .proj-stat:nth-child(1), .proj-stat:nth-child(2) { border-bottom: 1px solid var(--border); }
+}

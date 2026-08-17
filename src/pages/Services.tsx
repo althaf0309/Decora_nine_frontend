@@ -4,8 +4,25 @@ import { FiArrowLeft } from 'react-icons/fi';
 import { Service } from '../types';
 import { ServiceIcon } from '../lib/icons';
 import { ServiceCard } from '../components/ServiceCard';
+import { SEO, businessJsonLd } from '../components/SEO';
+import { FAQ, CTABand, faqJsonLd, QA } from '../components/PageExtras';
 import apiClient from '../api/client';
 import '../styles/ServiceDetail.css';
+
+const PROCESS = [
+  ['01', 'Consultation', 'We understand your space, needs, style and budget — free of charge.'],
+  ['02', 'Design & Estimate', 'Layouts, 3D visuals and a transparent, itemised estimate to approve.'],
+  ['03', 'Execution', 'Our in-house supervisors and craftsmen build it on quality and on schedule.'],
+  ['04', 'Handover', 'A final quality check, walkthrough and after-sales support.'],
+];
+
+const SERVICE_FAQ: QA[] = [
+  { q: 'How much does interior design cost in Bangalore?', a: 'It depends on the size of the space, the scope of work and the materials you choose. After a free consultation and site visit we give you a transparent, itemised estimate, so you know exactly what you are paying for before any work begins.' },
+  { q: 'Do you handle both design and execution?', a: 'Yes. Decora Nine is a design-and-execution firm — we manage layout, 3D design, materials, carpentry, modular kitchens, glazing, signage and site supervision under one roof, so you deal with a single accountable team.' },
+  { q: 'How long does an interior project take?', a: 'A typical home interior takes about 6–10 weeks and an office or commercial fit-out about 4–8 weeks, depending on scope. Because our supervisors and workers are in-house, we keep projects true to schedule from the first drawing to the final finish.' },
+  { q: 'Which areas do you serve?', a: 'We are based in Madiwala, Bangalore and take on residential, office and commercial interior projects across Bangalore and South India.' },
+  { q: 'Can you work within my budget?', a: 'Absolutely. We design to your budget and priorities, recommending materials and finishes that balance looks, durability and cost — without compromising on quality or timelines.' },
+];
 
 export const Services = () => {
   const [services, setServices] = useState<Service[]>([]);
@@ -22,20 +39,26 @@ export const Services = () => {
 
   return (
     <div className="services-page">
+      <SEO
+        title="Interior Design Services in Bangalore"
+        description="Residential, office, commercial, café & restaurant interior design and execution in Bangalore. Modular kitchens, furniture & carpentry, signage and ACP & glass glazing — designed and delivered by Decora Nine Interiors."
+        keywords="interior design services Bangalore, residential interior designers Bangalore, office interior design, commercial interior design, modular kitchen Bangalore, furniture and carpentry, ACP glass glazing, signage board work"
+        jsonLd={[businessJsonLd, faqJsonLd(SERVICE_FAQ)]}
+      />
       <section className="page-header">
         <h1>Our Services</h1>
-        <p>Complete interior design and execution solutions</p>
+        <p>Complete interior design &amp; execution in Bangalore</p>
       </section>
 
       <div className="container">
         <div className="page-intro reveal">
           <h2>End-to-end interior design &amp; execution</h2>
           <p>
-            From concept and design to on-site execution, Decora Nine delivers complete
-            interior solutions for homes, offices, restaurants and commercial spaces. With
-            multi-talented supervisors and a skilled in-house team, we handle every stage — layout,
-            materials, carpentry, glazing and signage — on quality and on schedule. Explore our
-            core services below.
+            From concept and design to on-site execution, Decora Nine delivers complete interior
+            solutions for homes, offices, restaurants, cafés and commercial spaces across Bangalore.
+            With multi-talented supervisors and a skilled in-house team, we handle every stage —
+            space planning, 3D design, modular kitchens, furniture &amp; carpentry, glazing and
+            signage — on quality and on schedule. Explore our core services below.
           </p>
         </div>
 
@@ -43,7 +66,7 @@ export const Services = () => {
           {services.map((service, i) => (
             <Link key={service.id} to={`/services/${service.slug}`} className={`service-detail-card reveal d${(i % 3) + 1}`}>
               <div className="service-detail-img">
-                <img src={service.cover_image} alt={service.title} />
+                <img src={service.cover_image} alt={`${service.title} in Bangalore by Decora Nine Interiors`} />
                 <span className="service-icon-badge"><ServiceIcon slug={service.slug} size={26} /></span>
               </div>
               <div className="service-detail-body">
@@ -55,6 +78,35 @@ export const Services = () => {
           ))}
         </div>
       </div>
+
+      {/* How we work */}
+      <section className="proc-section">
+        <div className="container">
+          <div className="about-sec-head">
+            <span className="eyebrow center reveal">How We Work</span>
+            <h2 className="fancy-h center about-fh reveal d1">
+              <span className="fh-italic">A Simple,</span>&nbsp;<span className="fh-bold">Proven Process</span>
+              <span className="fh-dash" />
+            </h2>
+          </div>
+          <div className="proc-grid">
+            {PROCESS.map(([n, t, d], i) => (
+              <div key={n} className={`proc-card reveal d${i + 1}`}>
+                <span className="proc-num">{n}</span>
+                <h3>{t}</h3>
+                <p>{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FAQ items={SERVICE_FAQ} eyebrow="Interior Design FAQ" />
+
+      <CTABand
+        heading="Planning your next interior?"
+        text="Get a free consultation and a transparent estimate from Bangalore's dependable interior design & execution team."
+      />
     </div>
   );
 };
@@ -85,6 +137,21 @@ export const ServiceDetail = () => {
 
   return (
     <div className="service-detail-page">
+      <SEO
+        title={`${service.title} in Bangalore`}
+        description={`${service.short_description}. ${service.title} by Decora Nine Interiors — design and execution across Bangalore and South India. ${service.description.slice(0, 110)}`}
+        keywords={`${service.title} Bangalore, ${service.title} interior designers, interior design Bangalore`}
+        image={service.cover_image}
+        type="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: service.title,
+          provider: businessJsonLd,
+          areaServed: 'Bangalore',
+          description: service.short_description,
+        }}
+      />
       <section className="pd-hero" style={{ backgroundImage: `url(${service.cover_image})` }}>
         <div className="pd-hero-overlay" />
         <div className="pd-hero-content">
