@@ -210,7 +210,19 @@
     order: -1;
   }
   .fcta-panel {
-    padding: 44px 30px;
+    padding: 40px 26px;
+    align-items: flex-start;
+  }
+  /* Ribbon becomes a normal pill above the heading (no overlap on mobile) */
+  .fcta-ribbon {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    align-self: flex-start;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 6px;
   }
   .fcta-panel h3 {
     font-size: 23px;
