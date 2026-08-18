@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FiPhone, FiMessageCircle, FiMail, FiClock, FiTarget, FiEye, FiUsers } from 'react-icons/fi';
 import { SiteSettings, Service } from '../types';
 import { ContactForm } from '../components/ContactForm';
-import { ServiceIcon } from '../lib/icons';
 import { SEO, businessJsonLd } from '../components/SEO';
 import apiClient from '../api/client';
 import '../styles/Contact.css';
@@ -130,11 +129,9 @@ const ABOUT_GALLERY = [
 
 export const About = () => {
   const [settings, setSettings] = useState<SiteSettings | null>(null);
-  const [services, setServices] = useState<Service[]>([]);
 
   useEffect(() => {
     apiClient.getSiteSettings().then(setSettings).catch(console.error);
-    apiClient.getServices({ page_size: 8 }).then(d => setServices(d.results)).catch(console.error);
   }, []);
 
   return (
@@ -166,28 +163,6 @@ export const About = () => {
             <div className="about-tags">
               {ABOUT_TAGS.map(t => <span key={t} className="tag-chip">{t}</span>)}
             </div>
-          </div>
-        </section>
-
-        <section className="about-services">
-          <div className="about-sec-head">
-            <span className="about-eyebrow center">What We Do</span>
-            <h2 className="fancy-h center about-fh">
-              <span className="fh-italic">Our</span>&nbsp;<span className="fh-bold">Services</span>
-              <span className="fh-dash" />
-            </h2>
-          </div>
-          <div className="about-svc-grid">
-            {services.map((s, i) => (
-              <Link key={s.id} to={`/services/${s.slug}`} className={`about-svc-card reveal d${(i % 3) + 1}`}>
-                <span className="about-svc-ico"><ServiceIcon slug={s.slug} size={26} /></span>
-                <div className="about-svc-body">
-                  <h3>{s.title}</h3>
-                  <p>{s.short_description}</p>
-                </div>
-                <span className="about-svc-arrow">→</span>
-              </Link>
-            ))}
           </div>
         </section>
 

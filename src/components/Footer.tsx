@@ -6,12 +6,14 @@ import apiClient from '../api/client';
 import '../styles/Footer.css';
 
 const SERVICES = [
-  ['Residential Interior Design', '/services/residential-interior-design'],
-  ['Commercial Interior Design', '/services/commercial-interior-design'],
+  ['Restaurants & Café Interiors', '/services/restaurant-cafe-interiors'],
+  ['Home Interiors & Modular Kitchen', '/services/home-interiors-modular-kitchen'],
+  ['ACP & Glass Structure Glazing', '/services/acp-glass-structure-glazing'],
   ['Office Interiors', '/services/office-interiors'],
-  ['Furniture & Carpentry', '/services/furniture-carpentry'],
-  ['Signage Board Work', '/services/signage-board-work'],
-  ['ACP & Glass Glazing', '/services/acp-glass-structure-glazing'],
+  ['Furniture & Carpentry Work', '/services/furniture-carpentry'],
+  ['Office Glass Partitions', '/services/office-glass-partitions'],
+  ['POP Ceilings', '/services/pop-ceilings'],
+  ['Kitchen Equipments', '/services/kitchen-equipments'],
 ];
 
 export const Footer = () => {

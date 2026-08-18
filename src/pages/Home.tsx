@@ -55,12 +55,12 @@ const SHOWCASE = [
   {
     tag: 'Residential', a: 'Residential', b: 'Interiors', img: '/gallery/living.jpg',
     text: 'We create exquisite, functional living spaces — living rooms, bedrooms and modular kitchens — that reflect the unique personality and lifestyle of every homeowner.',
-    to: '/services/residential-interior-design',
+    to: '/services/home-interiors-modular-kitchen',
   },
   {
     tag: 'Commercial', a: 'Commercial', b: 'Interiors', img: '/gallery/restaurant.jpg',
     text: 'Whether it’s a sleek café, a stylish retail space or a high-end hospitality project, our designs optimise flow, elevate your brand and engage your customers.',
-    to: '/services/commercial-interior-design',
+    to: '/services/restaurant-cafe-interiors',
   },
   {
     tag: 'Office', a: 'Office', b: 'Interiors', img: '/gallery/office.jpg',

@@ -1,15 +1,18 @@
 import { IconType } from 'react-icons';
 import {
-  FiHome, FiShoppingBag, FiBriefcase, FiTool, FiTag, FiLayers, FiGrid,
+  FiCoffee, FiHome, FiLayers, FiBriefcase, FiColumns, FiSun, FiGrid,
 } from 'react-icons/fi';
+import { FaChair, FaUtensils } from 'react-icons/fa';
 
 const SERVICE_ICON: Record<string, IconType> = {
-  'residential-interior-design': FiHome,
-  'commercial-interior-design': FiShoppingBag,
-  'office-interiors': FiBriefcase,
-  'furniture-carpentry': FiTool,
-  'signage-board-work': FiTag,
+  'restaurant-cafe-interiors': FiCoffee,
+  'home-interiors-modular-kitchen': FiHome,
   'acp-glass-structure-glazing': FiLayers,
+  'office-interiors': FiBriefcase,
+  'kitchen-equipments': FaUtensils,
+  'furniture-carpentry': FaChair,
+  'office-glass-partitions': FiColumns,
+  'pop-ceilings': FiSun,
 };
 
 interface ServiceIconProps {
