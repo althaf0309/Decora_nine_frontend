@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiPhone, FiMessageCircle, FiMail, FiClock, FiTarget, FiEye, FiUsers } from 'react-icons/fi';
 import { SiteSettings, Service } from '../types';
 import { ContactForm } from '../components/ContactForm';
-import { ServiceCarousel } from '../components/ServiceCarousel';
+import { ServiceIcon } from '../lib/icons';
 import { SEO, businessJsonLd } from '../components/SEO';
 import apiClient from '../api/client';
 import '../styles/Contact.css';
@@ -177,7 +177,18 @@ export const About = () => {
               <span className="fh-dash" />
             </h2>
           </div>
-          <ServiceCarousel services={services} />
+          <div className="about-svc-grid">
+            {services.map((s, i) => (
+              <Link key={s.id} to={`/services/${s.slug}`} className={`about-svc-card reveal d${(i % 3) + 1}`}>
+                <span className="about-svc-ico"><ServiceIcon slug={s.slug} size={26} /></span>
+                <div className="about-svc-body">
+                  <h3>{s.title}</h3>
+                  <p>{s.short_description}</p>
+                </div>
+                <span className="about-svc-arrow">→</span>
+              </Link>
+            ))}
+          </div>
         </section>
 
         <section className="about-stats">

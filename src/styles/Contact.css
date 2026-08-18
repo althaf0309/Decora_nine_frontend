@@ -401,3 +401,61 @@
   .about-text h2 { font-size: 26px; }
   .about-page .container > section { margin: 50px 0; }
 }
+
+/* About page — services (icon-minimal horizontal cards, one navy accent) */
+.about-svc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.about-svc-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 14px;
+  padding: 22px 24px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.about-svc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 40, 81, 0.12);
+}
+.about-svc-ico {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background: rgba(0, 61, 153, 0.08);
+  border-radius: 50%;
+}
+.about-svc-body { flex: 1; }
+.about-svc-body h3 {
+  color: var(--primary);
+  font-size: 17px;
+  margin: 0 0 4px;
+}
+.about-svc-body p {
+  color: var(--text-light);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+.about-svc-arrow {
+  flex-shrink: 0;
+  color: var(--accent-dark);
+  font-size: 22px;
+  transition: transform 0.25s ease;
+}
+.about-svc-card:hover .about-svc-arrow {
+  transform: translateX(5px);
+}
+@media (max-width: 640px) {
+  .about-svc-grid { grid-template-columns: 1fr; }
+}

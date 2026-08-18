@@ -64,15 +64,13 @@ export const Services = () => {
 
         <div className="services-grid">
           {services.map((service, i) => (
-            <Link key={service.id} to={`/services/${service.slug}`} className={`service-detail-card reveal d${(i % 3) + 1}`}>
-              <div className="service-detail-img">
-                <img src={service.cover_image} alt={`${service.title} in Bangalore by Decora Nine Interiors`} />
-                <span className="service-icon-badge"><ServiceIcon slug={service.slug} size={26} /></span>
-              </div>
-              <div className="service-detail-body">
+            <Link key={service.id} to={`/services/${service.slug}`} className={`service-tile reveal d${(i % 3) + 1}`}>
+              <img src={service.cover_image} alt={`${service.title} in Bangalore by Decora Nine Interiors`} className="service-tile-img" />
+              <span className="service-tile-ico"><ServiceIcon slug={service.slug} size={24} /></span>
+              <div className="service-tile-content">
                 <h3>{service.title}</h3>
                 <p>{service.short_description}</p>
-                <span className="btn-link">View Details →</span>
+                <span className="service-tile-link">View Details →</span>
               </div>
             </Link>
           ))}
