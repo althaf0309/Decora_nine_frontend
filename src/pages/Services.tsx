@@ -41,8 +41,8 @@ export const Services = () => {
     <div className="services-page">
       <SEO
         title="Interior Design Services in Bangalore"
-        description="Residential, office, commercial, café & restaurant interior design and execution in Bangalore. Modular kitchens, furniture & carpentry, signage and ACP & glass glazing — designed and delivered by Decora Nine Interiors."
-        keywords="interior design services Bangalore, residential interior designers Bangalore, office interior design, commercial interior design, modular kitchen Bangalore, furniture and carpentry, ACP glass glazing, signage board work"
+        description="Our interior design & execution services in Bangalore: restaurants & café interiors, home interiors & modular kitchen, ACP & glass structure glazing, office interiors, kitchen equipments, furniture & carpentry, office glass partitions and POP ceilings."
+        keywords="interior design services Bangalore, restaurant cafe interiors, home interiors modular kitchen, ACP glass glazing, office interiors, kitchen equipments, furniture and carpentry, office glass partitions, POP ceilings Bangalore"
         jsonLd={[businessJsonLd, faqJsonLd(SERVICE_FAQ)]}
       />
       <section className="page-header">

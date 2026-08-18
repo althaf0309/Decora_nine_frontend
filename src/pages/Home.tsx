@@ -53,18 +53,18 @@ const STATS = [
 
 const SHOWCASE = [
   {
-    tag: 'Residential', a: 'Residential', b: 'Interiors', img: '/gallery/living.jpg',
-    text: 'We create exquisite, functional living spaces — living rooms, bedrooms and modular kitchens — that reflect the unique personality and lifestyle of every homeowner.',
+    tag: 'Home Interiors', a: 'Home Interiors &', b: 'Modular Kitchen', img: '/gallery/living.jpg',
+    text: 'Exquisite, functional living spaces — living rooms, bedrooms, wardrobes and premium modular kitchens — that reflect the unique personality and lifestyle of every homeowner.',
     to: '/services/home-interiors-modular-kitchen',
   },
   {
-    tag: 'Commercial', a: 'Commercial', b: 'Interiors', img: '/gallery/restaurant.jpg',
-    text: 'Whether it’s a sleek café, a stylish retail space or a high-end hospitality project, our designs optimise flow, elevate your brand and engage your customers.',
+    tag: 'Restaurants & Cafés', a: 'Restaurants &', b: 'Café Interiors', img: '/gallery/restaurant.jpg',
+    text: 'Stand-out cafés, restaurants and hospitality spaces — layouts, lighting, counters and finishes designed to pull in footfall, elevate your brand and keep guests lingering.',
     to: '/services/restaurant-cafe-interiors',
   },
   {
-    tag: 'Office', a: 'Office', b: 'Interiors', img: '/gallery/office.jpg',
-    text: 'Productive, inspiring workspaces with open-plan layouts, glass cabins and breakout zones — designed for growing teams and delivered on schedule.',
+    tag: 'Office Interiors', a: 'Office', b: 'Interiors', img: '/gallery/office.jpg',
+    text: 'Productive, inspiring workspaces with open-plan layouts, glass partitions, cabins and breakout zones — designed for growing teams and delivered on schedule.',
     to: '/services/office-interiors',
   },
 ];
