@@ -9,6 +9,7 @@ import { Services, ServiceDetail } from './pages/Services';
 import { Projects, ProjectDetail } from './pages/Projects';
 import { NewsList, NewsDetail } from './pages/News';
 import { Contact, About } from './pages/Contact';
+import { PrivacyPolicy, Terms } from './pages/Legal';
 import './App.css';
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
             <Route path="/news" element={<NewsList />} />
             <Route path="/news/:slug" element={<NewsDetail />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </main>
         <Footer />
