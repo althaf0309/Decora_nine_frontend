@@ -27,10 +27,10 @@ export const FAQ = ({ items, eyebrow = 'FAQ' }: { items: QA[]; eyebrow?: string 
             <span className="fh-dash" />
           </h2>
         </div>
-        <div className="faq-list">
+        <div className="faq-list reveal">
           {items.map((it, i) => (
-            <div key={i} className={`faq-item reveal ${open === i ? 'open' : ''}`}>
-              <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+            <div key={i} className={`faq-item ${open === i ? 'open' : ''}`}>
+              <button type="button" className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
                 <span>{it.q}</span>
                 {open === i ? <FiMinus /> : <FiPlus />}
               </button>
