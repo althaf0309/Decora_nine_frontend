@@ -5,9 +5,10 @@ import '../styles/ContactForm.css';
 
 interface ContactFormProps {
   services?: Service[];
+  whatsapp?: string;
 }
 
-export const ContactForm = ({ services = [] }: ContactFormProps) => {
+export const ContactForm = ({ services = [], whatsapp = '6366876887' }: ContactFormProps) => {
   const [formData, setFormData] = useState<ContactEnquiry>({
     full_name: '',
     phone: '',
@@ -31,9 +32,26 @@ export const ContactForm = ({ services = [] }: ContactFormProps) => {
     setLoading(true);
     setMessage(null);
 
+    const serviceName = services.find(s => s.id === formData.service)?.title || 'General enquiry';
     try {
       await apiClient.submitEnquiry(formData);
-      setMessage({ type: 'success', text: 'Enquiry submitted successfully! We will contact you soon.' });
+      setMessage({ type: 'success', text: 'Enquiry sent! Opening WhatsApp so our team gets it instantly…' });
+
+      // Send the enquiry to the business WhatsApp so they're notified right away
+      const lines = [
+        '*New enquiry — Decora Nine Interiors website*',
+        `Name: ${formData.full_name}`,
+        `Phone: ${formData.phone}`,
+        `Email: ${formData.email}`,
+        `Service: ${serviceName}`,
+        `Location: ${formData.project_location || '-'}`,
+        `Budget: ${formData.estimated_budget || '-'}`,
+        `Preferred contact: ${formData.preferred_contact_method}`,
+        `Message: ${formData.message}`,
+      ];
+      const waUrl = `https://wa.me/91${whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(waUrl, '_blank', 'noopener');
+
       setFormData({
         full_name: '',
         phone: '',
@@ -163,7 +181,7 @@ export const ContactForm = ({ services = [] }: ContactFormProps) => {
       </div>
 
       <button type="submit" className="btn-submit" disabled={loading}>
-        {loading ? 'Submitting...' : 'Send Enquiry'}
+        {loading ? 'Sending…' : 'Send Enquiry via WhatsApp'}
       </button>
     </form>
   );

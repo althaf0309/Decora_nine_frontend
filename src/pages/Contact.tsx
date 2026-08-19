@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiPhone, FiMessageCircle, FiMail, FiClock, FiTarget, FiEye, FiUsers } from 'react-icons/fi';
+import { FiPhone, FiMessageCircle, FiMail, FiTarget, FiEye, FiUsers } from 'react-icons/fi';
 import { SiteSettings, Service } from '../types';
 import { ContactForm } from '../components/ContactForm';
 import { SEO, businessJsonLd } from '../components/SEO';
@@ -64,11 +64,6 @@ export const Contact = () => {
             <strong>Email</strong>
             <span>{settings?.email}</span>
           </a>
-          <div className="ch-card reveal d4">
-            <span className="ch-icon"><FiClock /></span>
-            <strong>Hours</strong>
-            <span>Mon–Sat, 10AM–6PM</span>
-          </div>
         </div>
 
         <div className="contact-content">
@@ -92,16 +87,11 @@ export const Contact = () => {
               <h4>📧 Email</h4>
               <p><a href={`mailto:${settings?.email}`}>{settings?.email}</a></p>
             </div>
-
-            <div className="info-card">
-              <h4>🕒 Business Hours</h4>
-              <p>{settings?.business_hours || 'Mon–Sat: 10:00 AM – 6:00 PM, Sun: Closed'}</p>
-            </div>
           </div>
 
           <div className="contact-form-wrapper reveal reveal-right">
             <h2>Send Us a Message</h2>
-            <ContactForm services={services} />
+            <ContactForm services={services} whatsapp={whatsapp} />
           </div>
         </div>
       </div>

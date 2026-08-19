@@ -95,7 +95,6 @@ export const Footer = () => {
               </span>
             </div>
             <p className="fc-line"><span className="fc-ico">✉️</span> <a href={`mailto:${email}`}>{email}</a></p>
-            <p className="fc-line"><span className="fc-ico">🕒</span> {settings?.business_hours}</p>
           </div>
         </div>
 
